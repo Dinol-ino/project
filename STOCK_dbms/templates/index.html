@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+    <body>
+        <h1>📊 Stock Portfolio Dashboard</h1>
+        <input type="number" id="userId" placeholder="Enter User ID">
+        <button onclick="fetchPortfolio()">View Portfolio</button>
+    
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" style="display:none;">🔄 Loading...</div>
+    
+        <table id="portfolioTable"></table>
+    
+        <!-- Link to JS -->
+        <script src="{{ url_for('static', filename='main.js') }}"></script>
+    </body>
+</html>

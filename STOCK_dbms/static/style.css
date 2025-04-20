@@ -1,0 +1,61 @@
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #121212; /* Dark background */
+    color: #E0E0E0; /* Light text color */
+}
+
+/* Header Styling */
+h1 {
+    color: #BB86FC; /* Purple accent for the header */
+}
+
+/* Input and Button Styling */
+input, button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1F1F1F; /* Dark gray background for input/button */
+    color: #E0E0E0; /* Light text color */
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #BB86FC; /* Highlighted purple color on hover */
+    cursor: pointer;
+}
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #1F1F1F; /* Dark gray table background */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #333; /* Subtle borders */
+    text-align: center;
+    color: #E0E0E0; /* Light text for table cells */
+}
+
+/* Table Header Styling */
+th {
+    background-color: #BB86FC; /* Purple accent for headers */
+    color: #121212; /* Dark text in header cells */
+}
+
+/* Row Hover Effect */
+tr:hover {
+    background-color: #333; /* Slightly lighter background for hover effect */
+}
+
+/* Loading Spinner Styling */
+#loadingSpinner {
+    font-size: 18px;
+    color: #BB86FC; /* Purple accent color for spinner */
+    text-align: center;
+    margin: 20px;
+}
