@@ -8,7 +8,7 @@ async function fetchPortfolio() {
     table.innerHTML = ""; // Clear table before new fetch
     spinner.style.display = "block"; // Show loading spinner
 
-    if (!userId || isNaN(userId)) {
+    if (!userId || isNaN(userId) || userId.length === 0) {
         alert("Please enter a valid User ID.");
         spinner.style.display = "none";
         return;
@@ -19,9 +19,13 @@ async function fetchPortfolio() {
         console.log("Response status:", res.status);
 
         if (!res.ok) {
-            throw new Error("Server responded with an error.");
+            if (res.status === 404) {
+                alert(`No portfolio found for User ID ${userId}.`);
+            } else {
+                alert(`Error ${res.status}: Unable to fetch portfolio.`);
+            }
+            throw new Error(`Error ${res.status}: Server responded with an error.`);
         }
-
         const data = await res.json();
         console.log("Data received:", data);
 

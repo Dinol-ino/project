@@ -1,7 +1,6 @@
 import mysql.connector
 
 def get_db_connection():
-    try:
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
@@ -9,6 +8,3 @@ def get_db_connection():
             database='stock_portfolio'
         )
         return conn
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-        return None
