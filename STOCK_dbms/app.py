@@ -33,11 +33,25 @@ def dashboard():
 def get_portfolio(user_id):
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM portfolios WHERE user_id = %s;", (user_id,))
+
+    # ✅ Retrieve holdings, stock details, and compute profit/loss
+    cursor.execute("""
+        SELECT p.portfolio_id, p.user_id, p.portfolio_name, 
+               h.stock_id, h.quantity, h.avg_buy_price, 
+               s.symbol, s.company_name, s.sector, s.current_price, 
+               (s.current_price - h.avg_buy_price) * h.quantity AS profit_loss
+        FROM portfolios p
+        LEFT JOIN holdings h ON p.portfolio_id = h.portfolio_id
+        LEFT JOIN stocks s ON h.stock_id = s.stock_id
+        WHERE p.user_id = %s;
+    """, (user_id,))
+
     portfolio = cursor.fetchall()
     conn.close()
-    
-    return jsonify(portfolio) if portfolio else jsonify([])  # ✅ Returns JSON portfolio data
 
+    print("Portfolio Data Returned:", portfolio)  # ✅ Debugging output
+
+    return jsonify(portfolio) if portfolio else jsonify([])
+    
 if __name__ == "__main__":
     app.run(debug=True)

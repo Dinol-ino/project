@@ -4,7 +4,8 @@
     <title>Portfolio Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-    <body>
+<body>
+    <div class="dashboard-container">
         <h1>📊 Stock Portfolio Dashboard</h1>
         <input type="number" id="userId" placeholder="Enter User ID">
         <button onclick="fetchPortfolio()">View Portfolio</button>
@@ -12,9 +13,23 @@
         <!-- Loading Spinner -->
         <div id="loadingSpinner" style="display:none;">🔄 Loading...</div>
     
-        <table id="portfolioTable"></table>
-    
+        <!-- Table for Portfolio Data -->
+        <table id="portfolioTable">
+            <thead>
+                <tr>
+                    <th>Stock Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic content will be inserted here -->
+            </tbody>
+        </table>
+
         <!-- Link to JS -->
         <script src="{{ url_for('static', filename='main.js') }}"></script>
-    </body>
+    </div>
+</body>
 </html>

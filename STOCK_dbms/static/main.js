@@ -19,41 +19,48 @@ async function fetchPortfolio() {
         console.log("Response status:", res.status);
 
         if (!res.ok) {
-            if (res.status === 404) {
-                alert(`No portfolio found for User ID ${userId}.`);
-            } else {
-                alert(`Error ${res.status}: Unable to fetch portfolio.`);
-            }
-            throw new Error(`Error ${res.status}: Server responded with an error.`);
+            const errorText = await res.text(); // ✅ Get full error response
+            console.error("Server Error:", errorText);
+            alert(`Error ${res.status}: ${errorText}`);
+            throw new Error(`Error ${res.status}: ${errorText}`);
         }
+
         const data = await res.json();
         console.log("Data received:", data);
 
-        if (data.length === 0) {
+        if (!data || data.length === 0) {
             table.innerHTML = `<tr><td colspan="6">No data found for User ID ${userId}</td></tr>`;
         } else {
-            table.innerHTML = `
-                <tr>
-                    <th>Portfolio</th>
-                    <th>Symbol</th>
-                    <th>Qty</th>
-                    <th>Buy Price</th>
-                    <th>Current Price</th>
-                    <th>P/L</th>
-                </tr>
+            // ✅ Optimized table rendering using `document.createElement()`
+            const fragment = document.createDocumentFragment();
+            
+            const headerRow = document.createElement("tr");
+            headerRow.innerHTML = `
+                <th>Portfolio</th>
+                <th>Symbol</th>
+                <th>Qty</th>
+                <th>Buy Price</th>
+                <th>Current Price</th>
+                <th>P/L</th>
             `;
+            fragment.appendChild(headerRow);
+
             data.forEach(row => {
-                table.innerHTML += `
-                    <tr>
-                        <td>${row.portfolio_name}</td>
-                        <td>${row.symbol}</td>
-                        <td>${row.quantity}</td>
-                        <td>${row.avg_buy_price}</td>
-                        <td>${row.current_price}</td>
-                        <td>${row.profit_loss}</td>
-                    </tr>
+                console.log("Row data:", row);
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${row.portfolio_name || "N/A"}</td>
+                    <td>${row.symbol || "N/A"}</td>
+                    <td>${row.quantity || "N/A"}</td>
+                    <td>${row.avg_buy_price || "N/A"}</td>
+                    <td>${row.current_price || "N/A"}</td>
+                    <td>${row.profit_loss || "N/A"}</td>
                 `;
+                fragment.appendChild(tr);
             });
+
+            table.appendChild(fragment);
         }
     } catch (error) {
         console.error("Error fetching portfolio:", error);

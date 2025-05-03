@@ -1,61 +1,99 @@
-/* Body Styling */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 30px;
-    background-color: #121212; /* Dark background */
-    color: #E0E0E0; /* Light text color */
+    font-size: 18px;
+    margin: 0;
+    background-color: #181818; /* Deeper dark shade */
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-/* Header Styling */
-h1 {
-    color: #BB86FC; /* Purple accent for the header */
+/* Login Page Styling */
+.login-container {
+    width: 350px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #1F1F1F;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(187, 134, 252, 0.3); /* Lavender glow */
 }
 
-/* Input and Button Styling */
-input, button {
-    padding: 10px;
-    margin: 10px;
+/* Login Heading */
+.login-container h2 {
+    font-size: 24px;
+    color: #BB86FC; /* Lavender accent */
+}
+
+/* Input Fields */
+input {
+    font-size: 16px;
+    padding: 12px;
+    width: 80%;
     border: none;
     border-radius: 5px;
-    background-color: #1F1F1F; /* Dark gray background for input/button */
-    color: #E0E0E0; /* Light text color */
+    background-color: #292929;
+    color: #E0E0E0;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Button Hover Effect */
-button:hover {
-    background-color: #BB86FC; /* Highlighted purple color on hover */
+/* Button */
+button {
+    font-size: 16px;
+    padding: 12px;
+    width: 85%;
+    border-radius: 5px;
+    background-color: #BB86FC;
+    color: #121212;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Table Styling */
+/* Dashboard Styling */
+.dashboard-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #1F1F1F; /* Dark theme consistency */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(187, 134, 252, 0.2);
+    text-align: center;
+}
+
+
+/* Dashboard Table */
 table {
-    border-collapse: collapse;
     width: 100%;
-    background-color: #1F1F1F; /* Dark gray table background */
+    border-collapse : separate;
+    border-spacing: 15px;
+    border-radius: 8px;
+    background-color: #292929;
+    padding: 15px;
+    margin-top:20px;
 }
 
 th, td {
-    padding: 12px;
-    border: 1px solid #333; /* Subtle borders */
-    text-align: center;
-    color: #E0E0E0; /* Light text for table cells */
-}
-
-/* Table Header Styling */
-th {
-    background-color: #BB86FC; /* Purple accent for headers */
-    color: #121212; /* Dark text in header cells */
-}
-
-/* Row Hover Effect */
-tr:hover {
-    background-color: #333; /* Slightly lighter background for hover effect */
-}
-
-/* Loading Spinner Styling */
-#loadingSpinner {
+    padding: 16px;
     font-size: 18px;
-    color: #BB86FC; /* Purple accent color for spinner */
+    border: 1px solid #333;
     text-align: center;
-    margin: 20px;
+    color: #E0E0E0;
+    border-radius: 5px;
+}
+
+th {
+    background-color: #BB86FC;
+    color: #121212;
+}
+tr {
+    margin-bottom: 12px; 
+}
+
+
+tr:hover {
+    background-color: #333;
 }
