@@ -12,46 +12,6 @@ body {
     height: 100vh;
 }
 
-/* Login Page Styling */
-.login-container {
-    width: 350px;
-    padding: 30px;
-    border-radius: 8px;
-    background-color: #1F1F1F;
-    text-align: center;
-    box-shadow: 0px 4px 15px rgba(187, 134, 252, 0.3); /* Lavender glow */
-}
-
-/* Login Heading */
-.login-container h2 {
-    font-size: 24px;
-    color: #BB86FC; /* Lavender accent */
-}
-
-/* Input Fields */
-input {
-    font-size: 16px;
-    padding: 12px;
-    width: 80%;
-    border: none;
-    border-radius: 5px;
-    background-color: #292929;
-    color: #E0E0E0;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Button */
-button {
-    font-size: 16px;
-    padding: 12px;
-    width: 85%;
-    border-radius: 5px;
-    background-color: #BB86FC;
-    color: #121212;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
 /* Dashboard Styling */
 .dashboard-container {
     width: 80%;
@@ -64,16 +24,29 @@ button {
     text-align: center;
 }
 
+/* Portfolio Summary Section */
+#portfolioSummary {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #E0E0E0;
+}
+
+/* Loading Spinner */
+#loadingSpinner {
+    color: #BB86FC;
+    font-size: 20px;
+    margin-top: 20px;
+}
 
 /* Dashboard Table */
 table {
     width: 100%;
-    border-collapse : separate;
+    border-collapse: separate;
     border-spacing: 15px;
     border-radius: 8px;
     background-color: #292929;
     padding: 15px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 th, td {
@@ -89,11 +62,39 @@ th {
     background-color: #BB86FC;
     color: #121212;
 }
-tr {
-    margin-bottom: 12px; 
-}
 
+tr {
+    margin-bottom: 12px;
+}
 
 tr:hover {
     background-color: #333;
+}
+
+/* Button */
+button {
+    font-size: 16px;
+    padding: 12px;
+    width: 85%;
+    border-radius: 5px;
+    background-color: #BB86FC;
+    color: #121212;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+input {
+    font-size: 16px;
+    padding: 12px;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    background-color: #292929;
+    color: #E0E0E0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Adjustments for Input and Button (specific to portfolio page) */
+input, button {
+    margin-bottom: 15px;
 }

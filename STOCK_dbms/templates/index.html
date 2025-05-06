@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="dashboard-container">
         <h1>📊 Stock Portfolio Dashboard</h1>
+        <h2>Welcome, {{ "Investor" }} !</h2>
+        
         <input type="number" id="userId" placeholder="Enter User ID">
         <button onclick="fetchPortfolio()">View Portfolio</button>
-    
-        <!-- Loading Spinner -->
+
         <div id="loadingSpinner" style="display:none;">🔄 Loading...</div>
-    
-        <!-- Table for Portfolio Data -->
+        
+        <div id="portfolioSummary">
+            <strong>Total Investment: </strong> 0<br>
+            <strong>Total Value: </strong> 0<br>
+            <strong>Total P/L: </strong> 0
+        </div>
+
         <table id="portfolioTable">
             <thead>
                 <tr>
-                    <th>Stock Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total Value</th>
+                    <th>Portfolio</th>
+                    <th>Symbol</th>
+                    <th>Qty</th>
+                    <th>Buy Price</th>
+                    <th>Current Price</th>
+                    <th>P/L</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Dynamic content will be inserted here -->
             </tbody>
         </table>
 
-        <!-- Link to JS -->
         <script src="{{ url_for('static', filename='main.js') }}"></script>
     </div>
 </body>
